@@ -26,6 +26,7 @@ x = point_list[:, 0]
 y = point_list[:, 1]
 X, Y = aplt.util.parametric_line(x, y)
 
+# Animatplot animation setup
 timeline = aplt.Timeline(t, r'$\ pts$', fps=60)
 
 ax = plt.axes()
@@ -36,17 +37,15 @@ plt.axis('equal')
 plt.grid()
 
 block1 = aplt.blocks.Line(X, Y, ax, marker='o', color='k', linestyle='', markersize='0.5')
-# or equivalently
-# block1 = aplt.blocks.ParametricLine(x, y, ax)
 
 anim = aplt.Animation([block1], timeline)
 
-# Your standard matplotlib stuff
+# Plotting with matplotlib
 plt.title('Sierpinski Triangle')
 plt.xlabel('x')
 plt.ylabel('y')
 
-# Create Interactive Elements
+# Create timeline slider
 anim.toggle()
 anim.timeline_slider()
 
